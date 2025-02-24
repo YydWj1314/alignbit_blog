@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="iconfonts/iconfont.css">
+  <!-- 注意顺序！ -->
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/index.css">
+  
+
+  <title>HomePage</title>
+
+</head>
+<body>
+  
+  <!-- 1.Header -->
+  <div class="header">
+    <!-- 版心 -->
+    <div class="wrapper">
+      <!-- logo -->
+      <div class="logo">
+        <h1 class="logo-image"><a href="#">name</a></h1>
+      </div>
+      <!-- 导航 -->
+      <div class="nav">
+        <ul>
+          <li><a href="#" class = active>Home</a></li>
+          <li><a href="#">Life</a></li>
+          <li><a href="#">CS</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </div> 
+      <!-- 搜索 -->
+      <div class="search">
+        <input type="text" placeholder="Search">
+        <a href="#"></a>
+      </div> 
+      <!-- 用户 -->
+      <div class="user">
+        <a href="#">
+          <img src="./uploads/user.png" alt=""></a>
+      </div> 
+    </div>
+  </div>
+
+  <!-- 2.Banner -->
+   <div class="banner">
+    <div class="wrapper">
+      <div class="left">
+        <ul>
+          <li><a href="#">Computer Architecture</a></li>
+          <li><a href="#">Web Development</a></li>
+          <li><a href="#">Data Structures & Algorithms</a></li>
+          <li><a href="#">Artificial Intelligence</a></li>
+        </ul>
+      </div>
+      <div class="right">this is right</div>
+    </div>
+   </div>
+
+   <!-- recommend
+    <div class="recommend wrapper">
+      <h3>Tags</h3>
+      <ul>
+        <li><a href="#">Java</a></li>
+        <li><a href="#">Arch</a></li>
+        <li><a href="#">JavaScript</a></li>
+        <li><a href="#">Web Development</a></li>
+        <li><a href="#">React</a></li>
+      </ul>
+      <a href="#" Class = allTags>More</a>
+    </div> -->
+
+  <!-- 3.Blogs_latest -->
+  <div class="Blogs_latest wrapper">
+    <!-- title -->
+    <div class="title">
+      <div class="left">
+        <h3>Latest</h3>
+        <p>Recent blogs </p>
+      </div>
+      <div class="right">
+        <a class="more" href="#">
+          <span>More</span>
+          <i class="iconfont icon-bug-report"></i>
+        </a>
+      </div>
+    </div>
+    <!-- content -->
+    <div class="content">
+      <ul>
+        <li>
+          <!-- /pic -->
+          <div class="pic">
+            <img src="" alt="">
+            <!-- /hover -->
+             <div class="cover">
+              <h2>Article title</h2>
+              <p>2025-2-21</p>
+             </div>
+          </div>
+          <!-- /text -->
+          <div class="txt">
+            <div class="left">
+              <p>tags</p>
+            </div>
+            <div class="right">
+              <p>
+                <i class="iconfont icon-comment-lines"></i>
+                <span>200</span>
+              </p>
+              <p>
+                <i class="iconfont icon-like"></i>
+                <span>120</span>
+              </p>
+            </div>
+          </div>
+        </li>
+        <li>1</li>
+        <li>1</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 4.Blogs_topics -->
+  <div class="Blogs_topics wrapper">
+    <!-- title -->
+    <div class="title">
+      <div class="left">
+        <h3>CS Topics💻</h3>
+        <p></p>
+      </div>
+      <div class="right">
+        <ul>
+          <li><a href="#" class="active">Arch</a></li>
+          <li><a href="#">Data Structure</a></li>
+          <li><a href="#">Web Development</a></li>
+        </ul>
+        <a class="more" href="#">
+          <span>More</span>
+          <i class="iconfont icon-bug-report"></i>
+        </a>
+      </div>
+    </div>
+    <div class="content">
+      <div class="left">this is left</div>
+      <div class="right">
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5.Blogs_Musings -->
+  <div class="Blogs_musings wrapper">
+    <!-- title -->
+    <div class="title">
+      <div class="left">
+        <h3>Musings</h3>
+        <p></p>
+      </div>
+      <div class="right">
+        <a class="more" href="#">
+          <span>More</span>
+          <i class="iconfont icon-bug-report"></i>
+        </a>
+      </div>
+    </div>
+     <!-- content -->
+    <div class="content">
+      <div class="left">
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+        </ul>
+      </div>
+      <div class="right">this is right</div>
+    </div>
+  </div>
+
+  <!-- 6. Message Wall -->
+  <div class="Blogs_message">
+    <div class="box w wrapper">
+      <div class="box-hd">
+        <h3>Your thoughts!😁</h3>
+        <a href="#"></a>
+      </div>
+      <div class="box-bd">
+        <ul class="clearfix">
+          <li><a href="#">1</a></li>
+          <li><a href="#">1</a></li>
+          <li><a href="#">1</a></li>
+          <li><a href="#">1</a></li>
+          <li><a href="#">1</a></li>
+          <li><a href="#">1</a></li>
+          <li><a href="#">1</a></li>
+          <li><a href="#">1</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+     <!-- 评论输入区 -->
+  <div class="mesageinput">
+    <div class="wrapper">
+      <!-- 评论输入区 -->
+      <div class="input">
+        <textarea name="提交到后端的key"  id="txt" placeholder="add a comment"></textarea>
+        <button class="button">Submit</button>
+      <!-- 提示文字区 -->
+      </div>
+      <div class="hint">
+        <span class="total">0/200 words</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Elevator -->
+  <div class="elevator">
+    <ul class="list">
+      <li><a href="" data-name="latest">Latest</a></li>
+      <li><a href="" data-name="topics">CS Topics</a></li>
+      <li><a href="#" data-name="musings"> Musings </a></li>
+      <li><a href="#" data-name="message"> MesageWall </a></li>
+      <li class="top" >
+        <a href="#" data-name="top">Top<i class="iconfont icon-bug-report" data-name="top-icon"></i></a>
+      </li>
+    </ul>
+  </div>
+  
+  <!-- Footer-->
+   <div class="footer">
+    this is footer
+   </div>
+   
+<!-- script part =========================================================== -->
+  <script>
+    // Header-hide 滚动出现
+    (function () {
+      const header = document.querySelector('.header')
+      const banner = document.querySelector('.banner')
+      const header_hide = header.cloneNode(true); // 克隆 header
+      header_hide.classList.add("header-hide"); // 只添加类，不手动设置样式
+      document.body.appendChild(header_hide);
+      window.addEventListener('scroll', function(){
+        const n = document.documentElement.scrollTop
+        if(n >= banner.offsetTop){
+          header_hide.style.top = '0px';
+        }else{
+          header_hide.style.top = '-60px';
+        }
+      })
+    })();
+
+    // Elevator 
+      // 1.滚动->出现
+    (function () {
+      const banner = document.querySelector('.banner')
+      const elevator = document.querySelector('.elevator')
+      window.addEventListener('scroll', function() {
+        const n = document.documentElement.scrollTop;
+        elevator.style.opacity = n >= banner.offsetTop ? 1 : 0;
+      })
+    })();
+    
+      // 2.点击事件
+    (function(){
+      const list = document.querySelector('.elevator .list')
+      const header = document.querySelector('.header')
+      list.addEventListener('click', function(e){
+        e.preventDefault(); 
+        if(e.target.tagName === 'A' || e.target.tagName === 'I'){
+          // 点击->active
+          const active_old = document.querySelector('.elevator .list .active')
+          if(active_old){
+            active_old.classList.remove('active')
+          }
+          e.target.classList.add('active')
+          // 点击->scroll
+          const data_name = e.target.dataset.name
+          if(data_name === "top" || data_name === "top-icon"){
+            window.scrollTo({top: 0, behavior: "smooth"})
+            e.target.classList.remove('active')
+          }
+          else{
+            const data = document.querySelector(`.Blogs_${data_name}`)
+            const len = data.getBoundingClientRect().top + window.scrollY - header.offsetHeight;
+            window.scrollTo({
+              top: len,
+              behavior: "smooth"
+            });
+          }
+        }
+      })
+    })();  
+    // 3.滑动事件: 页面滚动到主页区域，elevator <a> -> active
+    (function(){
+      window.addEventListener('scroll', function(){
+        const scrollTop = document.documentElement.scrollTop;
+        const header = document.querySelector('.header')
+        const bufferSpace = 50
+        // Binary search 优化: 盒子按照 offsetTop 顺序排列，根据 offsetTop 找到盒子执行操作
+        // 3.1. 创建Array: offsetMap=[{name:"data-set", offsetTop:20 },{},{}...]
+        const allA = document.querySelectorAll('.elevator .list a')
+          // 根据 <a> 标签的 data-name 获取盒子对象
+        const offsetMap = Array.from(allA)
+          .map(a => {            
+            const box = document.querySelector(`.Blogs_${a.dataset.name}`)
+            console.log(a.dataset.name);
+            
+            return box? {name: a.dataset.name, offsetTop: box.offsetTop - bufferSpace}: null;
+          }).filter(Boolean);     
+        // 3.2. Binary search: 根据当前scrollTop -> offsetTop 找到盒子，添加active 
+        let left = 0, right = offsetMap.length - 1, activeIndex = 0;
+        while(left <= right){
+          let mid = Math.floor((left + right) / 2)
+          if (scrollTop >= offsetMap[mid].offsetTop - header.offsetHeight ) {
+            activeIndex = mid;
+            left = mid + 1;
+          } else {
+            right = mid - 1; 
+          }
+        }  
+        // 3.3. 移除旧active, 添加新active
+        const oldActive = document.querySelector('.elevator .list .active')
+        if(oldActive) {oldActive.classList.remove('active')}
+        allA[activeIndex]?.classList.add('active')
+      })
+    })();
+    
+    // Message Input
+    const txt = document.querySelector('#txt')
+    const hint = document.querySelector('.hint')
+    const button = document.querySelector('.input .button')
+    // 1. 当 textarea 获得焦点，让 hint 显示出来
+    txt.addEventListener('focus', function(){
+      hint.style.opacity = 1;
+    })
+    // 2. 当 textarea 失焦，hint 消失
+    txt.addEventListener('blur', function(){
+      hint.style.opacity = 0;
+    })
+    // 3. 提示输入字数
+    txt.addEventListener('input', function(){
+      hint.innerHTML = `<span>${txt.value.length}</span>/200 words`
+    })
+    // 4. 单机button 发布评论, 并清空 textarea
+    button.addEventListener('click', function(){
+      // TBD 
+      if (txt.value.trim() === '') { console.log("invalid message"); }
+      else { console.log(txt.value.trim()); }
+      txt.value = ''
+    })
+  </script>
+</body>
+</html>

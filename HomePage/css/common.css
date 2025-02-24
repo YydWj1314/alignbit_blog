@@ -1,0 +1,167 @@
+/* recommend tags */
+.recommend {
+  display: flex;
+  align-items: center; /* 让 h3、ul、allTags 在同一行垂直居中 */
+  justify-content: space-between; /* 左右对齐 */
+  margin-top: 15px;
+  padding: 0 20px;
+  height: 50px; /* 统一高度 */
+  background-color: white;
+  box-shadow: 0px 1px 3px 1px rgba(211, 211, 211, 0.5);
+  font-family: "Orbitron", sans-serif;
+  font-size: 15px;
+}
+/* 让 h3 文字和 icon 保持左对齐 */
+.recommend h3 {
+  display: flex;
+  align-items: center; /* 让 h3 内的文字垂直居中 */
+  height: 100%;
+  margin: 0;
+  padding-left: 24px;
+  background: url("../images/tag.png") no-repeat left center;
+  background-size: 16px 16px;
+  font-size: 15px;
+}
+/* 让 <ul> 在 h3 和 allTags 之间均匀分布 */
+.recommend ul {
+  display: flex;
+  gap: 30px; /* 控制 <li> 之间的间距 */
+  justify-content: center; /* 让 <li> 在容器中居中 */
+  padding: 0;
+  list-style: none;
+}
+/* 让 <li> 适应内容 */
+.recommend ul li {
+  display: flex;
+  align-items: center;
+}
+/* 让 <a> 只占内容宽度并保持居中 */
+.recommend ul li a {
+  display: flex;
+  align-items: center; /* 文字垂直居中 */
+  justify-content: center; /* 文字水平居中 */
+  height: 30px;
+  padding: 5px 10px;
+  text-decoration: none;
+  font-size: 14px;
+  color: black;
+}
+.recommend li a:hover {
+  border-bottom: 2px solid #333;
+}
+/* "All" 标签按钮 */
+.recommend .allTags {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  padding: 5px 15px;
+  font-weight: 900;
+  font-size: 15px;
+  text-decoration: none;
+  color: black;
+}
+.recommend .allTags:hover {
+  border-bottom: 2px solid #333;
+}
+
+/* ------------------------------------------------- */
+/* display title */
+.title{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  height: 42px;
+  font-family: "Orbitron", sans-serif;
+}
+.title .left{
+  display: flex;
+  align-items: center;
+}
+.title .left h3{
+  margin-right: 35px;
+  font-size: 28px;
+}
+.title .left p{
+  align-self: flex-end;
+  color: #A1A1A1;
+  font-size: 15px; 
+}
+.title .right{
+  display: flex;
+  align-self: flex-end;
+}
+.title .right span{
+  color: black;
+  font-size: 15px;
+}
+.title .right .more .icon{
+  background-color: aquamarine;
+}
+
+/* ------------------------------------------------- */
+/* box 样式1 */
+.box {
+  margin-top: 30px;
+}
+.box-hd {
+  height: 45px;
+}
+.box-hd h3 {
+  float: left;
+  font-size: 20px;
+  font-family: "Goldman", sans-serif;
+  color: #494949;
+}
+.box-hd a {
+  float: right;
+  font-size: 12px;
+  color: #a5a5a5;
+  margin-top: 10px;
+  margin-right: 30px;
+}
+/* 把li 的父亲ul 修改的足够宽一行能装开5个盒子就不会换行了 */
+.box-bd ul {
+  display: flex;
+  flex-wrap: wrap; /* 允许换行 */
+  justify-content: flex-start; /* 让 `li` 左对齐 */
+  gap: 10px; /* 盒子之间间距 */
+  width: 100%;
+}
+.box-bd ul li {
+  /* position: relative;
+  flex: 1; */
+  top: 0;
+  width: 240px;
+  height: 200px;
+  background-color: skyblue;
+  margin-bottom: 15px;
+  transition: all .3s;
+}
+.box-bd ul li a {
+  display: block;
+}
+.box-bd ul li:hover {
+  top: -8px;
+  box-shadow: 0 15px 30px rgb(0 0 0 / 10%);
+}
+.box-bd ul li img {
+  width: 100%;
+}
+.box-bd ul li h4 {
+  margin: 20px 20px 20px 25px;
+  font-size: 14px;
+  color: #050505;
+  font-weight: 400;
+}
+.box-bd .info {
+  margin: 0 20px 0 25px;
+  font-size: 12px;
+  color: #999;
+}
+.box-bd .info span {
+  color: #ff7c2d;
+}
+
