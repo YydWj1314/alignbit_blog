@@ -1,0 +1,91 @@
+.father{
+  position: relative;
+}  
+
+.father .bottom{
+  position: absolute;
+  height: 150px;
+  width: 500px;
+  padding: 5px;
+  top: 30px;
+  background-color: white;
+  /* 水平偏移 垂直偏移 模糊半径 颜色; */
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.father .bottom:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.father .bottom .text {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  flex-direction: column;
+  max-width: 90%;
+  height: 100%;
+  margin-left: 175px;
+  border-radius: 8px;
+  overflow: hidden; 
+  text-align: center; 
+}
+
+.father .text p {
+  margin: 1px 0; 
+  word-break: break-word; /* 允许长单词换行 */
+}
+
+/* 日期 */
+.father .text .date {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 2px;
+}
+
+/* 标题 */
+.father .text .title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 5px;
+}
+
+/* 摘要 */
+.father .text .abstract {
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 90%;
+  max-height: 60px; 
+  overflow: hidden; 
+  color: #666; 
+  margin-top: 4px; 
+}
+
+.father .image{
+  position: absolute;
+  left: 15px;
+  height: 150px;
+  width: 150px;
+  box-shadow: 0px 1px 3px 1px rgba(211, 211, 211, 0.5);
+  background-color: white;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.father:hover .image {
+  transform: scale(1.05); /* 确保 `.image` 在 `.bottom` 悬停时同步放大 */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+}
+.father img{
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+
+
+
+
+

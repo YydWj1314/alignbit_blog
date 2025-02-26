@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="./css/base.css">
   <link rel="stylesheet" href="./css/common.css">
   <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/TopicBox.css">
   
 
   <title>HomePage</title>
@@ -93,37 +94,8 @@
       </div>
     </div>
     <!-- content -->
-    <div class="content">
-      <ul>
-        <li>
-          <!-- /pic -->
-          <div class="pic">
-            <img src="" alt="">
-            <!-- /hover -->
-             <div class="cover">
-              <h2>Article title</h2>
-              <p>2025-2-21</p>
-             </div>
-          </div>
-          <!-- /text -->
-          <div class="txt">
-            <div class="left">
-              <p>tags</p>
-            </div>
-            <div class="right">
-              <p>
-                <i class="iconfont icon-comment-lines"></i>
-                <span>200</span>
-              </p>
-              <p>
-                <i class="iconfont icon-like"></i>
-                <span>120</span>
-              </p>
-            </div>
-          </div>
-        </li>
-        <li>1</li>
-        <li>1</li>
+    <div class="latest-content">
+      <ul class="list">
       </ul>
     </div>
   </div>
@@ -148,14 +120,11 @@
         </a>
       </div>
     </div>
-    <div class="content">
-      <div class="left">this is left</div>
+    <!-- content -->
+    <div class="topics-content">
+      <div class="left"></div>
       <div class="right">
-        <ul>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
+        <ul class="grid-container">
         </ul>
       </div>
     </div>
@@ -263,7 +232,85 @@
         }
       })
     })();
-
+ /* -------------------------------------------------------------*/
+    // Blogs_latest 条件渲染
+  fetch("json/index_latest.json")  // 访问 json 目录下的 blogs.json
+    .then(response => response.json())  // 解析 JSON
+    .then(data => {
+      // console.log("获取的数据:", data);  // 测试数据是否正确
+      renderLatest(data);  // 调用函数渲染 HTML
+    })
+    .catch(error => console.error("获取 JSON 失败:", error));
+  // 渲染数据的函数
+  function renderLatest(blogs) {
+    const blogList = document.querySelector('.Blogs_latest .latest-content ul');
+    blogList.innerHTML = ""; // 清空现有内容
+    blogs.slice(0, 3).forEach(blog => {
+      const li = document.createElement("li");
+      li.innerHTML = `
+        <div class="pic">
+          <img src="${blog.pic}" alt="">
+          <div class="cover">
+            <h2>${blog.title}</h2>
+            <p>${blog.date}</p>
+          </div>
+        </div>
+        <div class="txt">
+          <div class="left">
+            <p>${blog.tag}</p>
+          </div>
+          <div class="right">
+            <p>
+              <i class="iconfont icon-comment-lines"></i>
+              <span>${blog.comments}</span>
+            </p>
+            <p>
+              <i class="iconfont icon-like"></i>
+              <span>${blog.likes}</span>
+            </p>
+          </div>
+        </div>
+      `;
+      blogList.appendChild(li);
+    });
+  }    
+/* -------------------------------------------------------------*/
+// Blog_topics 条件渲染
+fetch("json/index_topics copy.json")
+  .then(response => response.json())
+  .then(data => {
+    console.log(data)
+    renderTopics(data);
+  })
+  .catch(error => console.error("获取失败", error));
+  
+// 渲染数据
+function renderTopics(blogs){
+  const blogList = document.querySelector('.Blogs_topics .topics-content .right ul')
+  console.log(blogList)
+  blogList.innerHTML = ""
+  blogs.slice(0 ,8).forEach(blog => {
+    const li = document.createElement("li");
+    li.innerHTML = `
+      <div class="father">
+        <!-- text -->
+        <div class="bottom">
+          <div class="text">
+            <p class="title">${blog.title}</p>
+            <p class="date"> ${blog.date} </p>
+            <p class="abstract">${blog.abstract}</p>
+          </div>
+        </div>
+        <!-- image -->
+        <div class="image">
+          <img src="${blog.pic}" alt="">
+        </div>
+      </div>
+    `;
+    blogList.appendChild(li)
+  })
+}
+/* -------------------------------------------------------------*/
     // Elevator 
       // 1.滚动->出现
     (function () {
@@ -318,7 +365,7 @@
         const offsetMap = Array.from(allA)
           .map(a => {            
             const box = document.querySelector(`.Blogs_${a.dataset.name}`)
-            console.log(a.dataset.name);
+            // console.log(a.dataset.name);
             
             return box? {name: a.dataset.name, offsetTop: box.offsetTop - bufferSpace}: null;
           }).filter(Boolean);     
@@ -339,7 +386,8 @@
         allA[activeIndex]?.classList.add('active')
       })
     })();
-    
+
+/* -------------------------------------------------------------*/    
     // Message Input
     const txt = document.querySelector('#txt')
     const hint = document.querySelector('.hint')

@@ -146,46 +146,50 @@ body{
 .blogs_latest{
   margin-top: 20px;
 }
-.content ul {
+.latest-content ul {
   display: flex;
   flex-wrap: wrap; /* 允许换行 */
   justify-content: space-between; /* 让 `li` 从左向右排列，紧贴左侧 */
-  row-gap: 50px; /* 只控制上下行间距 */
   margin: 0 auto; /* 让 `ul` 居中 */
 }
-.content li {
+.latest-content li {
   width: 405px;
-  height: 355px;
-  background-color: pink;
+  border-radius: 8px;
+  box-shadow: 0px 1px 3px 1px rgba(211, 211, 211, 1);
 }
-.content .pic{
+.latest-content .pic{
   position: relative;
   width: 405px;
   height: 288px;
 }
-.content .txt{
+.latest-content img{
+  width: 100%;
+  height: 100%;
+  border-radius: 8px 8px 0 0;
+}
+.latest-content .txt{
   display: flex;
   justify-content:space-between; 
   align-items: center;
   padding: 0 15px;
   width: 405px;
-  height: 67px;
-  background-color: wheat;
+  height: 40px;
   font-size: 14px;
   color: #666;
 }
-.content .txt .right{
+.latest-content .txt .right{
   display: flex;
   gap: 15px; /* 设置 p 之间的间距 */
 } 
-.content .cover{
+.latest-content .cover{
   position: absolute;
   left: 0;
   bottom: 0;
   width: 300px;
   height: 80px;
   padding: 15px;
-  color: #666;
+  color: white;
+  background-image: linear-gradient(180deg, rgba(137,137,137,0.00) 0%, rgba(0,0,0,0.90) 100%);
 }
 
 /* --------------------------------------------------- */
@@ -194,52 +198,79 @@ body{
 .Blogs_topics .title{
   margin-top: 60px;
 }
-.Blogs_topics .right{
+.Blogs_topics .title .right{
   display: flex;
 }
-.Blogs_topics .right ul{
+.Blogs_topics .title .right ul{
   margin-right: 20px;
   display: flex;
 }
-.Blogs_topics .right li{
+.Blogs_topics .title .right li{
   margin-right: 10px;
   border-right: 1px solid #999;
 }
-.Blogs_topics .right li a{
+.Blogs_topics .title .right li a{
   margin-right: 10px;
   font-family:Georgia, 'Times New Roman', Times, serif;
 }
-.Blogs_topics .right li a:hover{
+.Blogs_topics .title .right li .active{
+  background-color: #29272742;
+}
+.Blogs_topics .title .right li a:hover{
   background-color: #0800ff42;
   color: #f3f5f7;
 }
-.Blogs_topics .right li .active{
-  background-color: #29272742;
-}
 /* content */
-.Blogs_topics .content{
+.Blogs_topics .topics-content{
   display: flex;
   justify-content: space-between;
 }
-.Blogs_topics .content .left{
-  width: 348px;
-  height: 610px;
-  background-color: pink;
+.Blogs_topics .topics-content .left{
+  width: 200px ;
+  background-image: url('../images/backgroud_topics.png'); /* 替换为你的图片路径 */
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat; 
 }
-.Blogs_topics .content .right {
-  width: 868px;
-  height: 610px;
+.Blogs_topics .topics-content .right {
+  width: 1200px;
+  height: 500px;
 }
-.Blogs_topics .content .right ul{
+
+.Blogs_topics .topics-content .right ul {
+  display: grid;
+  /* grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));  */
+  grid-template-columns: repeat(2, 500px); /* 固定 2 列，每列 500px */
+  grid-auto-rows: 200px; /* 每行固定 200px */
+  margin-left: 20px;
+  gap: 20px;
+  max-height: 500px;
+  overflow-y: scroll; 
+  padding: 10px;
+  justify-content: center; /* 居中对齐 */
+  align-content: start; /* 让内容从顶部开始 */
+}
+
+/* 让 li 撑满每一行 */
+.Blogs_topics .topics-content .right li {
   display: flex;
-  flex-direction: column; /* 让 li 纵向排列 */
-  gap: 10px; 
+  width: 520px;
+  justify-content: center;
 }
-.Blogs_topics .content .right li{
-  width: 868px;
-  flex: 1;
-  background-color: skyblue;
+.Blogs_topics .topics-content .right li .father{
+  position: relative;
+  width: 500px;
+  height: 200px; /* 适配 `bottom` + `image` */
+
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
+.father .bottom {
+  flex: 1; /* 让 `bottom` 自适应 */
+}
+  
 
 /* --------------------------------------------------- */
 /* Blogs_musings */
