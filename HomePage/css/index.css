@@ -214,7 +214,7 @@ body{
   font-family:Georgia, 'Times New Roman', Times, serif;
 }
 .Blogs_topics .title .right li .active{
-  background-color: #29272742;
+  background-color: skyblue;
 }
 .Blogs_topics .title .right li a:hover{
   background-color: #0800ff42;
@@ -238,6 +238,9 @@ body{
 }
 
 .Blogs_topics .topics-content .right ul {
+  display: none;
+}
+.Blogs_topics .topics-content .right ul.active{
   display: grid;
   /* grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));  */
   grid-template-columns: repeat(2, 500px); /* 固定 2 列，每列 500px */
@@ -250,8 +253,6 @@ body{
   justify-content: center; /* 居中对齐 */
   align-content: start; /* 让内容从顶部开始 */
 }
-
-/* 让 li 撑满每一行 */
 .Blogs_topics .topics-content .right li {
   display: flex;
   width: 520px;
@@ -311,7 +312,7 @@ body{
   left: 50%;
   top: 280px;
   z-index: 999;
-  margin-left: 670px;
+  margin-left: 630px;
   opacity: 0;
   transition: all .5s;
 }

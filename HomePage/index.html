@@ -109,10 +109,10 @@
         <p></p>
       </div>
       <div class="right">
-        <ul>
-          <li><a href="#" class="active">Arch</a></li>
-          <li><a href="#">Data Structure</a></li>
-          <li><a href="#">Web Development</a></li>
+        <ul class="titles"> 
+          <li data-id="1"><a href="#" data-id="0" class="active">Arch</a></li>
+          <li data-id="2"><a href="#" data-id="1">Data Structure & Algorithm</a></li>
+          <li data-id="3"><a href="#" data-id="2">Web Development</a></li>
         </ul>
         <a class="more" href="#">
           <span>More</span>
@@ -124,8 +124,9 @@
     <div class="topics-content">
       <div class="left"></div>
       <div class="right">
-        <ul class="grid-container">
-        </ul>
+        <ul class="active" data-name="Blog-tipic-1"></ul>
+        <ul class="" data-name="Blog-tipic-2"></ul>
+        <ul class="" data-name="Blog-tipic-3"></ul>
       </div>
     </div>
   </div>
@@ -261,7 +262,7 @@
           </div>
           <div class="right">
             <p>
-              <i class="iconfont icon-comment-lines"></i>
+              <i class="iconfont icon-commenjson/index_topics_arch.jsont-lines"></i>
               <span>${blog.comments}</span>
             </p>
             <p>
@@ -276,18 +277,52 @@
   }    
 /* -------------------------------------------------------------*/
 // Blog_topics 条件渲染
-fetch("json/index_topics copy.json")
-  .then(response => response.json())
-  .then(data => {
-    console.log(data)
-    renderTopics(data);
-  })
-  .catch(error => console.error("获取失败", error));
-  
-// 渲染数据
-function renderTopics(blogs){
-  const blogList = document.querySelector('.Blogs_topics .topics-content .right ul')
-  console.log(blogList)
+  const urls = ["json/index_topics_arch.json", 
+                "json/index_topics_ds.json",
+                "json/index_topics_web.json"]
+  const uls = document.querySelectorAll('.Blogs_topics .topics-content .right ul');
+  uls.forEach((ul, i) => {
+    fetch(urls[i])
+      .then(response => response.json())
+      .then(data => {
+        // console.log(`加载数据 ${i + 1}:`, data);
+        renderTopics(data, ul); // 传入对应的 `ul`
+      })
+      .catch(error => console.error("获取失败", error));
+  });
+
+  // title click
+  const titles = document.querySelector('.Blogs_topics .title .right ul')
+  titles.addEventListener('click', function(e){
+    const uls = document.querySelectorAll('.Blogs_topics .topics-content .right ul')
+    if(e.target.tagName === 'A'){
+      e.preventDefault(); 
+
+      // tag highlight
+      const oldActiveTitle = document.querySelector('.Blogs_topics .title .right li .active')
+      console.log(oldActiveTitle);
+      if(oldActiveTitle) {
+          oldActiveTitle.classList.remove('active')
+        }   
+      e.target.classList.add('active')
+
+      // tab switch
+      const i = +e.target.dataset.id
+        // remove 'active'
+      const oldActiveContent = document.querySelector('.Blogs_topics .topics-content .right ul.active')
+      if(oldActiveContent) {
+          oldActiveContent.classList.remove('active')
+        }
+        // add 'active'
+      uls[i].classList.add('active')
+    }
+  });
+
+
+
+
+// 渲染数据function
+function renderTopics(blogs, blogList){
   blogList.innerHTML = ""
   blogs.slice(0 ,8).forEach(blog => {
     const li = document.createElement("li");

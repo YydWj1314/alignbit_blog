@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "title": "Cache",
+    "title": "About Cache",
     "date": "2024-02-24",
     "pic":"images/chainsman_6.png",
     "tag": "arch",
@@ -11,7 +11,7 @@
   },
   {
     "id": 2,
-    "title": "Java-OOP",
+    "title": "What is Register",
     "date": "2024-03-24",
     "pic":"images/chainsman_5.png",
     "tag": "java",
@@ -21,7 +21,7 @@
   },
   {
     "id": 3,
-    "title": "Request & Response",
+    "title": "How CPU works",
     "date": "2024-04-24",
     "pic":"images/chainsman_4.png",
     "tag": "Web",
@@ -31,7 +31,7 @@
   },
   {
     "id": 4,
-    "title": "Cache",
+    "title": "RiscV",
     "date": "2024-05-24",
     "pic":"images/chainsman_3.png",
     "tag": "arch",
@@ -41,7 +41,7 @@
   },
   {
     "id": 5,
-    "title": "Cache",
+    "title": "RAM",
     "date": "2024-06-24",
     "pic":"images/chainsman_2.png",
     "tag": "arch",
@@ -51,7 +51,7 @@
   },
   {
     "id": 6,
-    "title": "Cache",
+    "title": "ROM",
     "date": "2024-06-24",
     "pic":"images/chainsman_1.png",
     "tag": "arch",
@@ -59,6 +59,4 @@
     "comments": 5,
     "abstract":"This is the abastract of blog This is the abastract of blog This is the abastract of blog This is the abastract of blog This is the abastract of blog This is the abastract of blogThis is the abastract of blog This is the abastract of blog This is the abastract of blog"
   }
-
-
 ]
