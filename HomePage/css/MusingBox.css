@@ -1,0 +1,122 @@
+/* 
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} */
+/* .testwrapper {
+  width: 900px;
+  height: 600px; 
+  overflow-y: auto; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; 
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #f3f3f3;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+} */
+
+.Blogs_musings .container {
+  flex: none; /* 防止盒子被压缩 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 900px;
+  height: 305px;
+}
+
+/* Card */
+.Blogs_musings .container .card {
+  display: flex;
+  align-items: center;
+  width: 850px;
+  height: 230px;
+  border-radius: 12px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5); /* 默认阴影 */
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  transform: scale(0.8);  
+  opacity: 0.4;
+  background: linear-gradient(to right,  
+  rgba(195, 210, 255, 0.5),  /* 淡柔紫 💜 */
+  rgba(175, 200, 255, 0.65), /* 柔和蓝紫 💙 */
+  rgba(155, 215, 250, 0.5),  /* 冰蓝 ❄ */
+  rgba(250, 180, 210, 0.4),  /* 樱花粉 🌸 */
+  rgba(255, 205, 175, 0.3),  /* 轻柔金杏 🍑 */
+  rgba(255, 225, 195, 0.2)   /* 浅米色 ☁ */
+);
+}
+.Blogs_musings .container .active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Image */
+.Blogs_musings .container .card .image {
+  margin-left: 20px;
+  width: 280px;
+  height: 280px;
+  border-radius: 60px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 轻微 3D 效果 */
+  overflow: hidden;
+}
+
+.Blogs_musings .container .card .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 确保图片填充但不变形 */
+  border-radius: 60px; 
+}
+
+/* Content */
+.container .card .content {
+  display: flex;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  width: 430px;
+  height: 230px;
+  margin-left: 20px;
+}
+.container .card .musing-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 4px;
+}
+.container .card .musing-date {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 10px;
+}
+.container .card .musing-abstract {
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 90%;
+  max-height: 60px; 
+  overflow: hidden; 
+  color: #666; 
+}
+
+
+/* Link */
+.Blogs_musings .musing-link {
+  z-index: 999;
+  margin-left: 10px;
+  font-size: 15px;
+  background: linear-gradient(to bottom, #fbc5ed, #a6c1ee);
+  padding: 7px 18px;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* 按钮阴影 */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* 按钮 hover 效果 */
+.Blogs_musings .musing-link:hover {
+  transform: translateY(-3px); /* 悬停微微上浮 */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* 提高立体感 */
+}  

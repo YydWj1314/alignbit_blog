@@ -13,6 +13,14 @@
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  background: linear-gradient(to right,  
+  rgba(175, 215, 240, 0.5),  /* 柔雾天蓝 ☁ */
+  rgba(155, 205, 235, 0.65), /* 淡湖蓝 🌊 */
+  rgba(135, 195, 230, 0.5),  /* 轻盈水蓝 💙 */
+  rgba(210, 225, 235, 0.4),  /* 低饱和灰蓝 🌫 */
+  rgba(245, 200, 220, 0.3),  /* 轻柔蜜桃粉 🍑 */
+  rgba(255, 185, 200, 0.2)   /* 淡雅樱花粉 🌷 */
+);
 }
 .father .bottom:hover {
   transform: scale(1.05);

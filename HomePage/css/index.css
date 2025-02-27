@@ -227,7 +227,7 @@ body{
 }
 .Blogs_topics .topics-content .left{
   width: 200px ;
-  background-image: url('../images/backgroud_topics.png'); /* 替换为你的图片路径 */
+  background-image: url('../images/background_topics.png'); 
   background-size: cover;
   background-position: center; 
   background-repeat: no-repeat; 
@@ -236,7 +236,6 @@ body{
   width: 1200px;
   height: 500px;
 }
-
 .Blogs_topics .topics-content .right ul {
   display: none;
 }
@@ -285,24 +284,63 @@ body{
   justify-content: space-between;
 }
 .Blogs_musings .content .left {
-  width: 668px;
-  height: 610px;
+  width: 970px;
+  height: 700px;
+  overflow-y: auto; /* 允许滚动 */
 }
 .Blogs_musings .content .left ul{
   display: flex;
   flex-direction: column; /* 让 li 纵向排列 */
-  gap: 10px; 
+  gap: 5px; 
   height: 100%;
 }
-.Blogs_musings .content .left li{
-  width: 668px;
-  flex: 1;
-  background-color: skyblue;
+.Blogs_musings .content .right {
+  width: 300px;
+  height: 700px;
+  position: relative;
+  background: url('../images/background_musing3.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.3);
+  transform: perspective(1000px) rotate(-2deg); /* 轻微倾斜 */
+  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
 }
-.Blogs_musings .content .right{
-  width: 548px;
-  height: 610px;
-  background-color: pink;
+
+/* 让 hover 时倾斜角度更大、浮动效果更明显 */
+.Blogs_musings .content .right:hover {
+  transform: perspective(1200px) rotateX(12deg) rotateY(-6deg) scale(1.08); /* 3D 旋转 */
+  box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.45); /* 阴影加深 */
+}
+
+/* 让倾斜更加随意，每个页面刷新时角度有变化 */
+.Blogs_musings .content .right.random-tilt {
+  transform: perspective(1000px) rotate(calc(-5deg + 10deg * var(--tilt)));
+}
+
+/* 让 hover 时的立体感更强 */
+.Blogs_musings .content .right:hover::before {
+  opacity: 0.9;
+}
+
+/* 轻微内阴影，模拟凹陷效果 */
+.Blogs_musings .content .right::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border-radius: 15px;
+  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.Blogs_musings .content .right::after {
+  position: absolute;
+  inset: 5px;
+  border-radius: 20px;
+  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.3); 
+  z-index: 2;
 }
 
 /* --------------------------------------------------- */
@@ -325,8 +363,9 @@ body{
   height: 250px;
   background: #f3f5f7;
   float: right;
-  box-shadow: 0px 1px 3px 1px rgba(211, 211, 211, 0.5);
+  box-shadow: 0px 1px 3px 1px rgba(211, 211, 211, 0.7);
   position: relative;
+  border-radius: 8px;
 }
 .elevator li{
   display: flex;

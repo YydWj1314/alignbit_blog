@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="./css/common.css">
   <link rel="stylesheet" href="./css/index.css">
   <link rel="stylesheet" href="./css/TopicBox.css">
+  <link rel="stylesheet" href="./css/MusingBox.css">
   
 
   <title>HomePage</title>
@@ -148,15 +149,10 @@
     </div>
      <!-- content -->
     <div class="content">
-      <div class="left">
-        <ul>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
-        </ul>
+      <div class="left">  
+        <ul></ul>
       </div>
-      <div class="right">this is right</div>
+      <div class="right"></div>
     </div>
   </div>
 
@@ -233,12 +229,13 @@
         }
       })
     })();
+
  /* -------------------------------------------------------------*/
     // Blogs_latest 条件渲染
   fetch("json/index_latest.json")  // 访问 json 目录下的 blogs.json
     .then(response => response.json())  // 解析 JSON
     .then(data => {
-      // console.log("获取的数据:", data);  // 测试数据是否正确
+      // console.log("获取的数据:", data);  
       renderLatest(data);  // 调用函数渲染 HTML
     })
     .catch(error => console.error("获取 JSON 失败:", error));
@@ -275,6 +272,7 @@
       blogList.appendChild(li);
     });
   }    
+
 /* -------------------------------------------------------------*/
 // Blog_topics 条件渲染
   const urls = ["json/index_topics_arch.json", 
@@ -291,7 +289,7 @@
       .catch(error => console.error("获取失败", error));
   });
 
-  // title click
+  // title click 渲染
   const titles = document.querySelector('.Blogs_topics .title .right ul')
   titles.addEventListener('click', function(e){
     const uls = document.querySelectorAll('.Blogs_topics .topics-content .right ul')
@@ -318,9 +316,6 @@
     }
   });
 
-
-
-
 // 渲染数据function
 function renderTopics(blogs, blogList){
   blogList.innerHTML = ""
@@ -345,6 +340,91 @@ function renderTopics(blogs, blogList){
     blogList.appendChild(li)
   })
 }
+
+/* -------------------------------------------------------------*/
+// Blog_musings 条件渲染
+  fetch("json/index_musing.json")
+    .then(response => response.json())
+    .then(data => {
+      renderMusing(data)
+      // updateCards(); // **确保 cards 变量更新**
+      renderMusingScroll(); 
+      renderMusingHover();
+    })
+    .catch(error => console.error("获取json失败", error))
+  // function
+  function renderMusing(blogs){
+    const blogList = document.querySelector('.Blogs_musings .content .left ul')
+    blogList.innerHTML = ""
+    blogs.slice(0, 8).forEach(blog => {
+      const li = document.createElement("li");
+      li.innerHTML = `
+        <div class="container">
+          <div class="card active">
+            <!-- image -->
+            <div class="image"><img src="${blog.pic}" alt=""></div>
+            <!-- cotentent -->
+            <div class="content">
+              <div>
+                <p class="musing-title">${blog.title}</p>
+                <p class="musing-date">${blog.date}</p>
+                <p class="musing-abstract">${blog.abstract}</p>
+              </div>
+            </div>
+            <!-- link -->
+            <a href="" class="musing-link">Read</a>
+          </div>
+      </div>
+      `;
+      blogList.appendChild(li)
+    })
+    updateCards();
+  }
+  // scroll 效果渲染
+  let cards = [];
+  function updateCards() {
+    cards = document.querySelectorAll('.Blogs_musings .container .card');
+  }
+  const scrollContainer = document.querySelector('.Blogs_musings .content .left')
+  scrollContainer.addEventListener('scroll', renderMusingScroll);
+  function renderMusingScroll() {
+    let centerCard = null
+    let minDiff = Infinity
+    cards.forEach(card => {
+      card.classList.remove('active')
+      // .getBoundingClientRect(): .top → 盒子距离视口顶部的距离
+      //                           .height → 盒子本身的高度 
+      const rect = card.getBoundingClientRect()
+      const scrollContainerRect = scrollContainer.getBoundingClientRect()
+      const diff = Math.abs(rect.top + rect.height / 2   // 求 container中线 相对于屏幕位置
+                  - scrollContainerRect.top - scrollContainerRect.height / 2); // 求当前盒子中线相对于 container 中线的距离  
+      if(diff < minDiff){
+        centerCard = card
+        minDiff = diff
+      }     
+    })
+    if (centerCard) centerCard.classList.add('active');
+  }
+  // mouseenter 效果渲染
+  function renderMusingHover() {
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        document.querySelector('.Blogs_musings .content .left .active').classList.remove('active')
+        card.classList.add('active');
+      })
+      card.addEventListener('mouseleave', () => {
+        renderMusingScroll();
+      })
+    });
+  }
+  // 
+  document.addEventListener("DOMContentLoaded", function() {
+  const rightBox = document.querySelector('.Blogs_musings .content .right');
+  const randomTilt = Math.random(); // 生成 0 ~ 1 之间的随机数
+  rightBox.style.setProperty("--tilt", randomTilt); // 设置 CSS 变量
+  rightBox.classList.add('random-tilt');
+});
+
 /* -------------------------------------------------------------*/
     // Elevator 
       // 1.滚动->出现

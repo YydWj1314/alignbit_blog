@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>滚动高亮效果</title>
+  <style>
+    /* 页面全屏，居中对齐 */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(to bottom, #ece9e6, #ffffff); 
+    }
+
+    /* 滚动区域容器 */
+    .scroll-container {
+      width: 300px;
+      height: 400px; /* 增加高度，确保溢出产生滚动 */
+      overflow-y: auto; /* 允许滚动 */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px; /* 盒子间距 */
+      padding: 20px;
+      border-radius: 15px;
+      background-color: #f3f3f3;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* 盒子样式 */
+    .box {
+      flex: none; /* 防止盒子被压缩 */
+      width: 250px;
+      height: 120px;
+      background: #ff6b6b;
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    /* 进入视口中心的 div */
+    .box.active {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    /* 默认状态，缩小透明 */
+    .box {
+      transform: scale(0.8);
+      opacity: 0.3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="scroll-container">
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+    <div class="box">Box 3</div>
+    <div class="box">Box 4</div>
+    <div class="box">Box 5</div>
+  </div>
+
+<script>
+  const boxes = document.querySelectorAll('.box');
+  const scrollContainer = document.querySelector('.scroll-container');
+
+  function handleScroll() {
+    let centerBox = null;
+    let minDiff = Infinity;
+
+    boxes.forEach(box => {
+      const rect = box.getBoundingClientRect();
+      const containerRect = scrollContainer.getBoundingClientRect();
+      const diff = Math.abs(rect.top + rect.height / 2 - containerRect.top - containerRect.height / 2);
+      if (diff < minDiff) {
+        minDiff = diff;
+        centerBox = box;
+      }
+    });
+    // 移除所有 active
+    boxes.forEach(box => box.classList.remove('active'));
+
+    // 给最接近中心的 box 添加 active
+    if (centerBox) centerBox.classList.add('active');
+  }
+
+  // 监听滚动
+  scrollContainer.addEventListener('scroll', handleScroll);
+
+  // 初始化状态
+  handleScroll();
+</script>
+
+</body>
+</html>
