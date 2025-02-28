@@ -1,0 +1,85 @@
+.water {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 57% 43% 55% 45% / 51% 40% 60% 49%;
+  box-shadow: inset 10px 20px 30px rgba(0, 0, 0, 0.3),
+              10px 20px 20px rgba(0, 0, 0, 0.2),
+              15px 15px 30px rgba(0, 0, 0, 0.05),
+              inset -10px -10px 15px rgba(255, 255, 255, 0.8);
+  transition: border-radius 0.8s ease-in-out, transform 0.8s ease-in-out;
+  background: radial-gradient(circle at 50% 30%,  
+    rgba(255, 220, 150, 0.6),  /* ☀️ 柔和金色太阳核心 */
+    rgba(255, 190, 140, 0.5),  /* 🍊 夕阳光晕（橙色） */
+    rgba(245, 200, 220, 0.4),  /* 轻柔蜜桃粉 🍑 */
+    rgba(200, 210, 250, 0.3),  /* 过渡浅蓝 💙 */
+    rgba(155, 205, 235, 0.35), /* 淡湖蓝 🌊 */
+    rgba(135, 180, 255, 0.4)   /* 深湖蓝 🌊 */
+  ),
+  linear-gradient(to bottom,  
+    rgba(255, 200, 150, 0.3),  /* ☀️ 夕阳橙金 */
+    rgba(255, 180, 190, 0.4),  /* 🌷 柔和樱花粉 */
+    rgba(175, 205, 255, 0.4),  /* 🌊 浅湖蓝 */
+    rgba(145, 190, 245, 0.5),  /* 🌊 水面蓝 */
+    rgba(125, 170, 230, 0.6),  /* 🌊 深海蓝 */
+    rgba(105, 160, 220, 0.7)   /* 🌊 深蓝海底 */
+  );
+}
+.water.active{
+  animation: water-shake 4s cubic-bezier(0.4, 0.2, 0.2, 1) infinite alternate;
+}
+
+@keyframes water-shake {
+  0% {
+      transform: rotate(0deg) scale(1);
+      border-radius: 57% 43% 55% 45% / 51% 40% 60% 49%;
+  }
+  20% {
+      transform: rotate(-2deg) scale(1.02);
+      border-radius: 60% 40% 50% 50% / 48% 42% 58% 52%;
+  }
+  40% {
+      transform: rotate(2deg) scale(0.98);
+      border-radius: 55% 45% 60% 40% / 42% 50% 60% 48%;
+  }
+  60% {
+      transform: rotate(-1.5deg) scale(1.01);
+      border-radius: 58% 42% 52% 48% / 45% 55% 50% 50%;
+  }
+  80% {
+      transform: rotate(1.5deg) scale(1.02);
+      border-radius: 52% 48% 58% 42% / 50% 40% 60% 50%;
+  }
+  100% {
+      transform: rotate(0deg) scale(1);
+      border-radius: 57% 43% 55% 45% / 51% 40% 60% 49%;
+  }
+}
+
+/* 💧 水滴的光点 */
+.water::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 40px;
+  left: 40%;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  opacity: 0.8;
+  filter: blur(1px);
+}
+
+/* 💧 小光点 */
+.water::before {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  top: 60px;
+  left: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  opacity: 0.7;
+}
+

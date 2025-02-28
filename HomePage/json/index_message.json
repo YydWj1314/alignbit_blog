@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "uname": "JOJO", 
+    "date": "2024-02-24",
+    "text": "Ola Ola Ola Ola aaaaaaaaaaa!"
+  },
+  {
+    "id": 2,
+    "uname": "Dio", 
+    "date": "2024-02-23",
+    "text": "KONO DIO DA"
+  },
+  {
+    "id": 3,
+    "uname": "Power", 
+    "date": "2024-05-18",
+    "text": "Simple yet effective explanation, great job!"
+  },
+  {
+    "id": 4,
+    "uname": "Bigbang", 
+    "date": "2024-01-12",
+    "text": "Fantastic Baby BANG! BANG! BANG!"
+  },
+  {
+    "id": 5,
+    "uname": "Joker", 
+    "date": "2024-01-12",
+    "text": "Why so serious？"
+  },
+  {
+    "id": 6,
+    "uname": "IVE", 
+    "date": "2024-01-12",
+    "text": "Love Dive"
+  },
+  {
+    "id": 7,
+    "uname": "Kendric Lamar", 
+    "date": "2024-01-12",
+    "text": "Say Drake"
+  },
+  {
+    "id": 8,
+    "uname": "Trump", 
+    "date": "2024-01-12",
+    "text": "MEGA!"
+  }
+]

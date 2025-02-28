@@ -31,22 +31,23 @@ body {
 
 /* Card */
 .Blogs_musings .container .card {
+  will-change: transform, opacity;
   display: flex;
   align-items: center;
   width: 850px;
   height: 230px;
   border-radius: 12px;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5); /* 默认阴影 */
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
   transform: scale(0.8);  
   opacity: 0.4;
+  transition: transform 0.3s ease-in-out , opacity 0.4s ease, box-shadow 0.4s ease-in-out;
   background: linear-gradient(to right,  
-  rgba(195, 210, 255, 0.5),  /* 淡柔紫 💜 */
-  rgba(175, 200, 255, 0.65), /* 柔和蓝紫 💙 */
-  rgba(155, 215, 250, 0.5),  /* 冰蓝 ❄ */
-  rgba(250, 180, 210, 0.4),  /* 樱花粉 🌸 */
-  rgba(255, 205, 175, 0.3),  /* 轻柔金杏 🍑 */
-  rgba(255, 225, 195, 0.2)   /* 浅米色 ☁ */
+  rgba(195, 210, 255, 0.5),  
+  rgba(175, 200, 255, 0.65), 
+  rgba(155, 215, 250, 0.5),  
+  rgba(250, 180, 210, 0.4),  
+  rgba(255, 205, 175, 0.3),  
+  rgba(255, 225, 195, 0.2)   
 );
 }
 .Blogs_musings .container .active {

@@ -1,0 +1,115 @@
+.banner {
+position: relative;
+width: 100%;
+height: 500px;
+overflow: hidden;
+background: linear-gradient(to bottom,  
+  hsla(210, 82%, 67%, 0.6),  
+  rgba(135, 190, 250, 0.5),  
+  rgba(255, 150, 200, 0.4),   
+  rgba(255, 180, 130, 0.35),  
+  rgba(255, 210, 130, 0.3),   
+  rgba(255, 230, 160, 0.2),  
+  rgba(255, 230, 180, 0)     
+);
+}
+#particles {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: 1;
+}
+.banner-content {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+position: relative;
+z-index: 2;
+text-align: center;
+color: rgb(80, 70, 100);
+padding-top: 120px;
+}
+.banner h1 {
+font-size: 3rem;
+}
+.banner p {
+font-size: 1.2rem;
+opacity: 0.8;
+}
+
+.waves {
+  position: absolute;
+  bottom: 0; /* 固定在底部 */
+  width: 100%;
+  min-height:100px;
+  max-height:150px;
+  background: radial-gradient(circle at 50% 50%, 
+  rgba(255, 220, 150, 0.85),  /* ☀️ 柔和金色太阳核心 */
+  rgba(255, 180, 120, 0.75),  /* 🍊 夕阳光晕（橙色） */
+  rgba(255, 140, 130, 0.65),  /* 🌅 深橙霞光 */
+  rgba(255, 130, 150, 0.6),   /* 🌸 粉霞过渡 */
+  rgba(76, 141, 245, 0.5)     /* 💙 湖蓝柔和衔接 */
+),
+linear-gradient(to bottom,  
+  rgba(255, 180, 130, 0.1),  /* 🌅 夕阳金橙 */
+  rgba(255, 180, 130, 0.2),  /* 🌅 夕阳金橙 */
+  rgba(255, 150, 140, 0.6),  /* 🍑 浅粉霞光 */
+  rgba(240, 130, 190, 0.5),  /* 🌺 玫瑰粉霞 */
+  rgba(0, 123, 255, 0.5),  /* 💙 浅湖蓝（海面） */
+  rgba(100, 160, 230, 0.3),  /* 🌊 深蓝（海洋） */
+  rgba(80, 140, 210, 0.3),   /* 🌊 更深的蓝 */
+  rgba(60, 120, 200, 0.2),   /* 🌊 深蓝水面 */
+  rgba(40, 100, 180, 0.1),   /* 🌊 渐变透明 */
+  rgba(20, 80, 160, 0)       /* 🌊 底部淡出 */
+);
+}
+/* Animation */
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+@keyframes move-forever {
+  0% {
+   transform: translate3d(-90px,0,0);
+  }
+  100% { 
+    transform: translate3d(85px,0,0);
+  }
+}
+
+.typewriter{
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 4px solid rgb(80, 70, 100); /* 模拟光标 */
+  padding-right: 5px;
+  width: 0; /* 开始时隐藏 */
+  animation: typing 3s steps(30, end) forwards, blink 0.6s infinite;
+}
+/* 打字机动画 */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 15ch; } /* 控制显示的字符数 */
+}
+
+/* 光标闪烁 */
+@keyframes blink {
+  50% { border-color: transparent; }
+}

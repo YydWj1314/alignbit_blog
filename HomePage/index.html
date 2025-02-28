@@ -12,8 +12,10 @@
   <link rel="stylesheet" href="./css/base.css">
   <link rel="stylesheet" href="./css/common.css">
   <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/Banner.css">
   <link rel="stylesheet" href="./css/TopicBox.css">
   <link rel="stylesheet" href="./css/MusingBox.css">
+  <link rel="stylesheet" href="./css/water.css">
   
 
   <title>HomePage</title>
@@ -52,37 +54,29 @@
   </div>
 
   <!-- 2.Banner -->
-   <div class="banner">
-    <div class="wrapper">
-      <div class="left">
-        <ul>
-          <li><a href="#">Computer Architecture</a></li>
-          <li><a href="#">Web Development</a></li>
-          <li><a href="#">Data Structures & Algorithms</a></li>
-          <li><a href="#">Artificial Intelligence</a></li>
-        </ul>
-      </div>
-      <div class="right">this is right</div>
+  <div class="banner">
+    <canvas id="particles"></canvas>
+    <div class="banner-content">
+      <h1 class="typewriter">Welcome to Alignbit🫰</h1>
+      <p> Explore and Share Freely</p>
     </div>
-   </div>
-
-   <!-- recommend
-    <div class="recommend wrapper">
-      <h3>Tags</h3>
-      <ul>
-        <li><a href="#">Java</a></li>
-        <li><a href="#">Arch</a></li>
-        <li><a href="#">JavaScript</a></li>
-        <li><a href="#">Web Development</a></li>
-        <li><a href="#">React</a></li>
-      </ul>
-      <a href="#" Class = allTags>More</a>
-    </div> -->
+    <svg class="waves" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18v44h-352z" />
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.2)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fbf6ee" />
+      </g>
+    </svg>
+  </div>
 
   <!-- 3.Blogs_latest -->
   <div class="Blogs_latest wrapper">
     <!-- title -->
-    <div class="title">
+    <div class="latest-tt section-tt">
       <div class="left">
         <h3>Latest</h3>
         <p>Recent blogs </p>
@@ -104,7 +98,7 @@
   <!-- 4.Blogs_topics -->
   <div class="Blogs_topics wrapper">
     <!-- title -->
-    <div class="title">
+    <div class="topics-tt section-tt">
       <div class="left">
         <h3>CS Topics💻</h3>
         <p></p>
@@ -135,7 +129,7 @@
   <!-- 5.Blogs_Musings -->
   <div class="Blogs_musings wrapper">
     <!-- title -->
-    <div class="title">
+    <div class="musings-tt section-tt">
       <div class="left">
         <h3>Musings</h3>
         <p></p>
@@ -150,7 +144,11 @@
      <!-- content -->
     <div class="content">
       <div class="left">  
-        <ul></ul>
+        <ul> 
+          <li>12</li>
+          <li>12</li>
+          <li>12</li>
+        </ul>
       </div>
       <div class="right"></div>
     </div>
@@ -158,27 +156,18 @@
 
   <!-- 6. Message Wall -->
   <div class="Blogs_message">
-    <div class="box w wrapper">
-      <div class="box-hd">
-        <h3>Your thoughts!😁</h3>
-        <a href="#"></a>
+    <div class="wrapper">
+      <div class="message-tt section-tt">
+        <h3>Leave Your Thoughts!😁</h3>
       </div>
-      <div class="box-bd">
-        <ul class="clearfix">
-          <li><a href="#">1</a></li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">1</a></li>
+      <div class="message-container">
+        <ul class="message-list">
         </ul>
       </div>
     </div>
   </div>
 
-     <!-- 评论输入区 -->
+  <!-- input -->
   <div class="mesageinput">
     <div class="wrapper">
       <!-- 评论输入区 -->
@@ -212,320 +201,13 @@
    </div>
    
 <!-- script part =========================================================== -->
-  <script>
-    // Header-hide 滚动出现
-    (function () {
-      const header = document.querySelector('.header')
-      const banner = document.querySelector('.banner')
-      const header_hide = header.cloneNode(true); // 克隆 header
-      header_hide.classList.add("header-hide"); // 只添加类，不手动设置样式
-      document.body.appendChild(header_hide);
-      window.addEventListener('scroll', function(){
-        const n = document.documentElement.scrollTop
-        if(n >= banner.offsetTop){
-          header_hide.style.top = '0px';
-        }else{
-          header_hide.style.top = '-60px';
-        }
-      })
-    })();
+  <script src="./js/index_header.js" ></script> 
+  <script src="js/index_banner.js" ></script> 
+  <script src="js/index_latest.js" ></script>    
+  <script src="js/index_topics.js"></script>  
+  <script src="js/index_musings.js"></script> 
+  <script src="js/index_elevator.js"></script> 
+  <script src="js/index_message.js"></script> 
 
- /* -------------------------------------------------------------*/
-    // Blogs_latest 条件渲染
-  fetch("json/index_latest.json")  // 访问 json 目录下的 blogs.json
-    .then(response => response.json())  // 解析 JSON
-    .then(data => {
-      // console.log("获取的数据:", data);  
-      renderLatest(data);  // 调用函数渲染 HTML
-    })
-    .catch(error => console.error("获取 JSON 失败:", error));
-  // 渲染数据的函数
-  function renderLatest(blogs) {
-    const blogList = document.querySelector('.Blogs_latest .latest-content ul');
-    blogList.innerHTML = ""; // 清空现有内容
-    blogs.slice(0, 3).forEach(blog => {
-      const li = document.createElement("li");
-      li.innerHTML = `
-        <div class="pic">
-          <img src="${blog.pic}" alt="">
-          <div class="cover">
-            <h2>${blog.title}</h2>
-            <p>${blog.date}</p>
-          </div>
-        </div>
-        <div class="txt">
-          <div class="left">
-            <p>${blog.tag}</p>
-          </div>
-          <div class="right">
-            <p>
-              <i class="iconfont icon-commenjson/index_topics_arch.jsont-lines"></i>
-              <span>${blog.comments}</span>
-            </p>
-            <p>
-              <i class="iconfont icon-like"></i>
-              <span>${blog.likes}</span>
-            </p>
-          </div>
-        </div>
-      `;
-      blogList.appendChild(li);
-    });
-  }    
-
-/* -------------------------------------------------------------*/
-// Blog_topics 条件渲染
-  const urls = ["json/index_topics_arch.json", 
-                "json/index_topics_ds.json",
-                "json/index_topics_web.json"]
-  const uls = document.querySelectorAll('.Blogs_topics .topics-content .right ul');
-  uls.forEach((ul, i) => {
-    fetch(urls[i])
-      .then(response => response.json())
-      .then(data => {
-        // console.log(`加载数据 ${i + 1}:`, data);
-        renderTopics(data, ul); // 传入对应的 `ul`
-      })
-      .catch(error => console.error("获取失败", error));
-  });
-
-  // title click 渲染
-  const titles = document.querySelector('.Blogs_topics .title .right ul')
-  titles.addEventListener('click', function(e){
-    const uls = document.querySelectorAll('.Blogs_topics .topics-content .right ul')
-    if(e.target.tagName === 'A'){
-      e.preventDefault(); 
-
-      // tag highlight
-      const oldActiveTitle = document.querySelector('.Blogs_topics .title .right li .active')
-      console.log(oldActiveTitle);
-      if(oldActiveTitle) {
-          oldActiveTitle.classList.remove('active')
-        }   
-      e.target.classList.add('active')
-
-      // tab switch
-      const i = +e.target.dataset.id
-        // remove 'active'
-      const oldActiveContent = document.querySelector('.Blogs_topics .topics-content .right ul.active')
-      if(oldActiveContent) {
-          oldActiveContent.classList.remove('active')
-        }
-        // add 'active'
-      uls[i].classList.add('active')
-    }
-  });
-
-// 渲染数据function
-function renderTopics(blogs, blogList){
-  blogList.innerHTML = ""
-  blogs.slice(0 ,8).forEach(blog => {
-    const li = document.createElement("li");
-    li.innerHTML = `
-      <div class="father">
-        <!-- text -->
-        <div class="bottom">
-          <div class="text">
-            <p class="title">${blog.title}</p>
-            <p class="date"> ${blog.date} </p>
-            <p class="abstract">${blog.abstract}</p>
-          </div>
-        </div>
-        <!-- image -->
-        <div class="image">
-          <img src="${blog.pic}" alt="">
-        </div>
-      </div>
-    `;
-    blogList.appendChild(li)
-  })
-}
-
-/* -------------------------------------------------------------*/
-// Blog_musings 条件渲染
-  fetch("json/index_musing.json")
-    .then(response => response.json())
-    .then(data => {
-      renderMusing(data)
-      // updateCards(); // **确保 cards 变量更新**
-      renderMusingScroll(); 
-      renderMusingHover();
-    })
-    .catch(error => console.error("获取json失败", error))
-  // function
-  function renderMusing(blogs){
-    const blogList = document.querySelector('.Blogs_musings .content .left ul')
-    blogList.innerHTML = ""
-    blogs.slice(0, 8).forEach(blog => {
-      const li = document.createElement("li");
-      li.innerHTML = `
-        <div class="container">
-          <div class="card active">
-            <!-- image -->
-            <div class="image"><img src="${blog.pic}" alt=""></div>
-            <!-- cotentent -->
-            <div class="content">
-              <div>
-                <p class="musing-title">${blog.title}</p>
-                <p class="musing-date">${blog.date}</p>
-                <p class="musing-abstract">${blog.abstract}</p>
-              </div>
-            </div>
-            <!-- link -->
-            <a href="" class="musing-link">Read</a>
-          </div>
-      </div>
-      `;
-      blogList.appendChild(li)
-    })
-    updateCards();
-  }
-  // scroll 效果渲染
-  let cards = [];
-  function updateCards() {
-    cards = document.querySelectorAll('.Blogs_musings .container .card');
-  }
-  const scrollContainer = document.querySelector('.Blogs_musings .content .left')
-  scrollContainer.addEventListener('scroll', renderMusingScroll);
-  function renderMusingScroll() {
-    let centerCard = null
-    let minDiff = Infinity
-    cards.forEach(card => {
-      card.classList.remove('active')
-      // .getBoundingClientRect(): .top → 盒子距离视口顶部的距离
-      //                           .height → 盒子本身的高度 
-      const rect = card.getBoundingClientRect()
-      const scrollContainerRect = scrollContainer.getBoundingClientRect()
-      const diff = Math.abs(rect.top + rect.height / 2   // 求 container中线 相对于屏幕位置
-                  - scrollContainerRect.top - scrollContainerRect.height / 2); // 求当前盒子中线相对于 container 中线的距离  
-      if(diff < minDiff){
-        centerCard = card
-        minDiff = diff
-      }     
-    })
-    if (centerCard) centerCard.classList.add('active');
-  }
-  // mouseenter 效果渲染
-  function renderMusingHover() {
-    cards.forEach(card => {
-      card.addEventListener('mouseenter', () => {
-        document.querySelector('.Blogs_musings .content .left .active').classList.remove('active')
-        card.classList.add('active');
-      })
-      card.addEventListener('mouseleave', () => {
-        renderMusingScroll();
-      })
-    });
-  }
-  // 
-  document.addEventListener("DOMContentLoaded", function() {
-  const rightBox = document.querySelector('.Blogs_musings .content .right');
-  const randomTilt = Math.random(); // 生成 0 ~ 1 之间的随机数
-  rightBox.style.setProperty("--tilt", randomTilt); // 设置 CSS 变量
-  rightBox.classList.add('random-tilt');
-});
-
-/* -------------------------------------------------------------*/
-    // Elevator 
-      // 1.滚动->出现
-    (function () {
-      const banner = document.querySelector('.banner')
-      const elevator = document.querySelector('.elevator')
-      window.addEventListener('scroll', function() {
-        const n = document.documentElement.scrollTop;
-        elevator.style.opacity = n >= banner.offsetTop ? 1 : 0;
-      })
-    })();
-    
-      // 2.点击事件
-    (function(){
-      const list = document.querySelector('.elevator .list')
-      const header = document.querySelector('.header')
-      list.addEventListener('click', function(e){
-        e.preventDefault(); 
-        if(e.target.tagName === 'A' || e.target.tagName === 'I'){
-          // 点击->active
-          const active_old = document.querySelector('.elevator .list .active')
-          if(active_old){
-            active_old.classList.remove('active')
-          }
-          e.target.classList.add('active')
-          // 点击->scroll
-          const data_name = e.target.dataset.name
-          if(data_name === "top" || data_name === "top-icon"){
-            window.scrollTo({top: 0, behavior: "smooth"})
-            e.target.classList.remove('active')
-          }
-          else{
-            const data = document.querySelector(`.Blogs_${data_name}`)
-            const len = data.getBoundingClientRect().top + window.scrollY - header.offsetHeight;
-            window.scrollTo({
-              top: len,
-              behavior: "smooth"
-            });
-          }
-        }
-      })
-    })();  
-    // 3.滑动事件: 页面滚动到主页区域，elevator <a> -> active
-    (function(){
-      window.addEventListener('scroll', function(){
-        const scrollTop = document.documentElement.scrollTop;
-        const header = document.querySelector('.header')
-        const bufferSpace = 50
-        // Binary search 优化: 盒子按照 offsetTop 顺序排列，根据 offsetTop 找到盒子执行操作
-        // 3.1. 创建Array: offsetMap=[{name:"data-set", offsetTop:20 },{},{}...]
-        const allA = document.querySelectorAll('.elevator .list a')
-          // 根据 <a> 标签的 data-name 获取盒子对象
-        const offsetMap = Array.from(allA)
-          .map(a => {            
-            const box = document.querySelector(`.Blogs_${a.dataset.name}`)
-            // console.log(a.dataset.name);
-            
-            return box? {name: a.dataset.name, offsetTop: box.offsetTop - bufferSpace}: null;
-          }).filter(Boolean);     
-        // 3.2. Binary search: 根据当前scrollTop -> offsetTop 找到盒子，添加active 
-        let left = 0, right = offsetMap.length - 1, activeIndex = 0;
-        while(left <= right){
-          let mid = Math.floor((left + right) / 2)
-          if (scrollTop >= offsetMap[mid].offsetTop - header.offsetHeight ) {
-            activeIndex = mid;
-            left = mid + 1;
-          } else {
-            right = mid - 1; 
-          }
-        }  
-        // 3.3. 移除旧active, 添加新active
-        const oldActive = document.querySelector('.elevator .list .active')
-        if(oldActive) {oldActive.classList.remove('active')}
-        allA[activeIndex]?.classList.add('active')
-      })
-    })();
-
-/* -------------------------------------------------------------*/    
-    // Message Input
-    const txt = document.querySelector('#txt')
-    const hint = document.querySelector('.hint')
-    const button = document.querySelector('.input .button')
-    // 1. 当 textarea 获得焦点，让 hint 显示出来
-    txt.addEventListener('focus', function(){
-      hint.style.opacity = 1;
-    })
-    // 2. 当 textarea 失焦，hint 消失
-    txt.addEventListener('blur', function(){
-      hint.style.opacity = 0;
-    })
-    // 3. 提示输入字数
-    txt.addEventListener('input', function(){
-      hint.innerHTML = `<span>${txt.value.length}</span>/200 words`
-    })
-    // 4. 单机button 发布评论, 并清空 textarea
-    button.addEventListener('click', function(){
-      // TBD 
-      if (txt.value.trim() === '') { console.log("invalid message"); }
-      else { console.log(txt.value.trim()); }
-      txt.value = ''
-    })
-  </script>
 </body>
 </html>

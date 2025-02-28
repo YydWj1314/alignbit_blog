@@ -11,20 +11,20 @@
   background-color: white;
   /* 水平偏移 垂直偏移 模糊半径 颜色; */
   border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 8px 15px rgba(0, 0, 0, 0.2); 
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   background: linear-gradient(to right,  
-  rgba(175, 215, 240, 0.5),  /* 柔雾天蓝 ☁ */
-  rgba(155, 205, 235, 0.65), /* 淡湖蓝 🌊 */
-  rgba(135, 195, 230, 0.5),  /* 轻盈水蓝 💙 */
-  rgba(210, 225, 235, 0.4),  /* 低饱和灰蓝 🌫 */
+  rgba(255, 220, 150, 0.5),  /* ☀️ 柔和金色太阳核心 */
+  rgba(255, 180, 120, 0.4),  /* 🍊 夕阳光晕（橙色） */
   rgba(245, 200, 220, 0.3),  /* 轻柔蜜桃粉 🍑 */
-  rgba(255, 185, 200, 0.2)   /* 淡雅樱花粉 🌷 */
+  rgba(255, 185, 200, 0.3),  /* 淡雅樱花粉 🌷 */
+  rgba(175, 200, 255, 0.4), 
+  rgba(155, 205, 235, 0.4)/* 淡湖蓝 🌊 */
 );
 }
 .father .bottom:hover {
   transform: scale(1.05);
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 8px 12px 20px rgba(0, 0, 0, 0.3);
 }
 
 .father .bottom .text {

@@ -67,37 +67,37 @@
 
 /* ------------------------------------------------- */
 /* display title */
-.title{
+.section-tt{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 40px;
-  margin-bottom: 20px;
+  margin-top: 80px;
+  margin-bottom: 40px;
   height: 42px;
   font-family: "Orbitron", sans-serif;
 }
-.title .left{
+.section-tt .left{
   display: flex;
   align-items: center;
 }
-.title .left h3{
+.section-tt .left h3{
   margin-right: 35px;
   font-size: 28px;
 }
-.title .left p{
+.section-tt .left p{
   align-self: flex-end;
   color: #A1A1A1;
   font-size: 15px; 
 }
-.title .right{
+.section-tt .right{
   display: flex;
   align-self: flex-end;
 }
-.title .right span{
+.section-tt.right span{
   color: black;
   font-size: 15px;
 }
-.title .right .more .icon{
+.section-tt .right .more .icon{
   background-color: aquamarine;
 }
 
